@@ -3,14 +3,26 @@ const baseUrl = 'https://challenge.crossmint.io/api/d851be47-c15c-48fa-8c20-94f1
 
 // Coordinates for the X-shape
 const coordinates = [
-    { row: 0, column: 2 },
-    { row: 1, column: 1 },
-    { row: 1, column: 3 },
-    { row: 2, column: 0 },
-    { row: 2, column: 4 },
-    { row: 3, column: 1 },
-    { row: 3, column: 3 },
-    { row: 4, column: 2 }
+    { row: 0, column: 5 },
+    { row: 1, column: 4 },
+    { row: 1, column: 6 },
+    { row: 2, column: 3 },
+    { row: 2, column: 7 },
+    { row: 3, column: 2 },
+    { row: 3, column: 8 },
+    { row: 4, column: 1 },
+    { row: 4, column: 9 },
+    { row: 5, column: 0 },
+    { row: 5, column: 10 },
+    { row: 6, column: 1 },
+    { row: 6, column: 9 },
+    { row: 7, column: 2 },
+    { row: 7, column: 8 },
+    { row: 8, column: 3 },
+    { row: 8, column: 7 },
+    { row: 9, column: 4 },
+    { row: 9, column: 6 },
+    { row: 10, column: 5 }
 ];
 
 // Function to create Polyanets
