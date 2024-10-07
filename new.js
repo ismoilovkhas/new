@@ -40,22 +40,22 @@ async function createPolyanets() {
     }
 }
 
-// Function to check the goal map
-async function checkGoalMap() {
-    try {
-        const response = await fetch(`${baseUrl}/map/${candidateId}/goal`);
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.error('Error fetching goal map:', errorData);
-            return;
-        }
+// // Function to check the goal map
+// async function checkGoalMap() {
+//     try {
+//         const response = await fetch(`${baseUrl}/map/${candidateId}/goal`);
+//         if (!response.ok) {
+//             const errorData = await response.json();
+//             console.error('Error fetching goal map:', errorData);
+//             return;
+//         }
 
-        const goalMap = await response.json();
-        console.log('Goal Map:', goalMap);
-    } catch (error) {
-        console.error('Network error fetching goal map:', error);
-    }
-}
+//         const goalMap = await response.json();
+//         console.log('Goal Map:', goalMap);
+//     } catch (error) {
+//         console.error('Network error fetching goal map:', error);
+//     }
+// }
 
 // Execute the functions
 createPolyanets().then(() => checkGoalMap());
