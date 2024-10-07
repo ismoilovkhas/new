@@ -1,73 +1,35 @@
-const candidateId = 'd851be47-c15c-48fa-8c20-94f117d23ca2'; // Your candidate ID
-const baseUrl = 'https://challenge.crossmint.io/api/d851be47-c15c-48fa-8c20-94f117d23ca2';
+const candidateId = "d851be47-c15c-48fa-8c20-94f117d23ca2"; // Your candidate ID
+const row = 1;
+const column = 1;
 
-// Coordinates for the X-shape
-const coordinates = [
-    { row: 0, column: 5 },
-    { row: 1, column: 4 },
-    { row: 1, column: 6 },
-    { row: 2, column: 3 },
-    { row: 2, column: 7 },
-    { row: 3, column: 2 },
-    { row: 3, column: 8 },
-    { row: 4, column: 1 },
-    { row: 4, column: 9 },
-    { row: 5, column: 0 },
-    { row: 5, column: 10 },
-    { row: 6, column: 1 },
-    { row: 6, column: 9 },
-    { row: 7, column: 2 },
-    { row: 7, column: 8 },
-    { row: 8, column: 3 },
-    { row: 8, column: 7 },
-    { row: 9, column: 4 },
-    { row: 9, column: 6 },
-    { row: 10, column: 5 }
-];
+const url = "https://challenge.crossmint.io/api/polyanets";
 
-// Function to create Polyanets
-async function createPolyanets() {
-    for (const { row, column } of coordinates) {
-        try {
-            const response = await fetch(`${baseUrl}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ candidateId, row, column }),
-            });
+const data = {
+    candidateId: candidateId,
+    row: row,
+    column: column
+};
 
-            if (!response.ok) {
-                // Handle different response statuses
-                const errorData = await response.json();
-                console.error(`Error creating Polyanet at (${row}, ${column}):`, errorData);
-                continue; // Skip to the next coordinate
-            }
-
-            const data = await response.json();
-            console.log(`Created Polyanet at (${row}, ${column}):`, data);
-        } catch (error) {
-            console.error(`Network error creating Polyanet at (${row}, ${column}):`, error);
-        }
+fetch(url, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok: ' + response.statusText);
     }
-}
+    return response.json();
+})
+.then(data => {
+    console.log("Success:", data);
+})
+.catch(error => {
+    console.error("Error:", error);
+});
 
-// // Function to check the goal map
-// async function checkGoalMap() {
-//     try {
-//         const response = await fetch(`${baseUrl}/map/${candidateId}/goal`);
-//         if (!response.ok) {
-//             const errorData = await response.json();
-//             console.error('Error fetching goal map:', errorData);
-//             return;
-//         }
-
-//         const goalMap = await response.json();
-//         console.log('Goal Map:', goalMap);
-//     } catch (error) {
-//         console.error('Network error fetching goal map:', error);
-//     }
-// }
 
 // Execute the functions
 createPolyanets()
