@@ -1,5 +1,5 @@
 const candidateId = 'd851be47-c15c-48fa-8c20-94f117d23ca2'; // Your candidate ID
-const baseUrl = 'https://challenge.crossmint.io/api';
+const baseUrl = 'https://challenge.crossmint.io/api/d851be47-c15c-48fa-8c20-94f117d23ca2';
 
 // Coordinates for the X-shape
 const coordinates = [
