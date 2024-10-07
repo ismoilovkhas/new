@@ -58,4 +58,5 @@ async function createPolyanets() {
 // }
 
 // Execute the functions
-createPolyanets().then(() => checkGoalMap());
+createPolyanets()
+    // .then(() => checkGoalMap());
