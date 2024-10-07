@@ -29,7 +29,7 @@ const coordinates = [
 async function createPolyanets() {
     for (const { row, column } of coordinates) {
         try {
-            const response = await fetch(`${baseUrl}/polyanets`, {
+            const response = await fetch(`${baseUrl}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
